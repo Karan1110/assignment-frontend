@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# PDF Form Filler Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Frontend
 
-## Available Scripts
+- The frontend is a React application built with JavaScript and React libraries.
+- It allows users to load a PDF form by clicking the "Load PDF" button.
+- The PDF is fetched from the backend server using the `fetch` API.
+- Once the PDF is loaded, it is displayed on the page using the `<object>` tag as an iframe.
+- Users can interact with the PDF form by entering text in the input field provided.
+- The user input is captured using the `useState` hook and stored in the `inputValue` state.
+- The "Save PDF" button allows users to save the updated PDF with their input.
+- When the "Save PDF" button is clicked, the user input is sent to the backend server using a POST request.
+- After successful saving on the server, the PDF is reloaded to update the displayed content.
 
-In the project directory, you can run:
+## Backend
 
-### `npm start`
+- The backend is built with Node.js and Express.js to handle the server-side logic.
+- It provides two endpoints: `/load-pdf` and `/save-pdf`.
+- The `/load-pdf` endpoint is responsible for serving the PDF file to the frontend.
+- If the PDF file does not exist, the backend generates a new PDF form with an input field using the `pdf-lib` library.
+- The PDF is then saved in the server's file system for future use.
+- The `/save-pdf` endpoint is responsible for receiving the user's input from the frontend.
+- When the user clicks the "Save PDF" button, the frontend sends the input value as JSON in the request body.
+- The backend receives the input and uses the `pdf-lib` library to update the PDF form with the user's input.
+- The updated PDF is then saved back to the file system on the server.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overall Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- The PDF Form Filler project allows users to view, interact with, and save input on a PDF form from a web application.
+- It leverages the React frontend to load and display the PDF form with an input field.
+- The backend handles PDF generation, serving, and saving user input to the PDF file.
+- The project demonstrates the use of libraries like `pdf-lib` for PDF manipulation.
+- Users can seamlessly update the PDF with their input, as the frontend fetches the latest PDF after saving.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Note:** In a production environment, proper security measures, such as authentication and input validation, would be essential to ensure the project's security and stability. Additionally, the frontend and backend would be hosted on different servers or cloud platforms for real-world deployment.
