@@ -1,7 +1,7 @@
 # PDF Form Filler Project
 
 ## Frontend
- - https://github.com/Karan1110/assignment-frontend/edit/main/README.md
+ - https://github.com/Karan1110/assignment-frontend/
 - The frontend is a React application built with JavaScript and React libraries.
 - It allows users to load a PDF form by clicking the "Load PDF" button.
 - The PDF is fetched from the backend server using the `fetch` API.
